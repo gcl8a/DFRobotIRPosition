@@ -83,6 +83,11 @@ public:
    */
   bool available();
 
+  /*!
+   *  @brief Reads a Point from the list of points that were found
+   *
+   *  @param i  index of the point
+   */
   Point ReadPoint(int i) { return points[i];}
 };
 
