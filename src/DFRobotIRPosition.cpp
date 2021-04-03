@@ -23,15 +23,6 @@ DFRobotIRPosition::~DFRobotIRPosition()
   
 }
 
-//this is awful -- see new function below
-// void DFRobotIRPosition::writeTwoIICByte(uint8_t first, uint8_t second)
-// {
-//   Wire.beginTransmission(IRAddress);
-//   Wire.write(first);
-//   Wire.write(second);
-//   Wire.endTransmission();
-// }
-
 // Instead of "writing two bytes", let's use proper I2C protocol and write to a register
 void DFRobotIRPosition::writeRegister(uint8_t reg, uint8_t value)
 {
@@ -76,14 +67,15 @@ bool DFRobotIRPosition::available()
     }
     
     for (int i=0; i<4; i++) {
-      positionX[i] = (uint16_t)(positionData.positionFrame.rawPosition[i].xLowByte)
+      points[i].x = (uint16_t)(positionData.positionFrame.rawPosition[i].xLowByte)
       + ((uint16_t)(positionData.positionFrame.rawPosition[i].xyHighByte & 0x30U) << 4);
 
-      positionY[i] = (uint16_t)(positionData.positionFrame.rawPosition[i].yLowByte)
+      points[i].y = (uint16_t)(positionData.positionFrame.rawPosition[i].yLowByte)
       + ((uint16_t)(positionData.positionFrame.rawPosition[i].xyHighByte & 0xC0U) << 2);
     }
     return true;
   }
+
   else{   //otherwise skip them.
     while (Wire.available()) {
       Wire.read();
@@ -91,36 +83,3 @@ bool DFRobotIRPosition::available()
     return false;
   }
 }
-
-int DFRobotIRPosition::readX(int index)
-{
-  return positionX[index];
-}
-
-int DFRobotIRPosition::readY(int index)
-{
-  return positionY[index];
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -17,11 +17,13 @@
 #ifndef DFRobotIRPosition_cpp
 #define DFRobotIRPosition_cpp
 
-class DFRobotIRPosition {
+struct Point
+{
+  int16_t x, y;
+};
 
-  //why would you do this?
-  //const int IRAddress = 0xB0 >> 1; ///< IIC address of the sensor
-  
+class DFRobotIRPosition 
+{
   //just use the actual address
   const int IRAddress = 0x58;
 
@@ -40,8 +42,7 @@ class DFRobotIRPosition {
     }__attribute__ ((packed))positionFrame;
   }__attribute__ ((packed)) positionData;
   
-  int positionX[4];   ///< position x.
-  int positionY[4];   ///< position y.
+  Point points[4];
   
   /*!
    *  @brief write to a register.
@@ -82,23 +83,7 @@ public:
    */
   bool available();
 
-  /*!
-   *  @brief get the X position of the point, 1023 means empty.
-   *
-   *  @param index The index of the 4 light objects ranging from 0 to 3,
-   *
-   *  @return The X position corresponing to the index.
-   */
-  int readX(int index);
-  
-  /*!
-   *  @brief get the Y position of the point, 1023 means empty.
-   *
-   *  @param index The index of the 4 light objects ranging from 0 to 3,
-   *
-   *  @return The Y position corresponing to the index.
-   */
-  int readY(int index);
+  Point ReadPoint(int i) { return points[i];}
 };
 
 

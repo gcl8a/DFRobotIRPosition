@@ -24,9 +24,6 @@
 
 DFRobotIRPosition myDFRobotIRPosition;
 
-int positionX[4];     ///< Store the X position
-int positionY[4];     ///< Store the Y position
-
 /*!
  *  @brief Print the position result.
  */
@@ -53,12 +50,16 @@ void loop()
    *  @brief If there is data available, print it. Otherwise show the error message.
    */
   if (myDFRobotIRPosition.available()) {
-    for (int i=0; i<4; i++) {
-      positionX[i]=myDFRobotIRPosition.readX(i);
-      positionY[i]=myDFRobotIRPosition.readY(i);
+    for (int i=0; i<4; i++) 
+    {
+      Point point = myDFRobotIRPosition.ReadPoint(i);
+      Serial.print(point.x);
+      Serial.print(",");
+      
+      Serial.print(point.y);
+      Serial.print(";");
     }
-
-    printResult();
+    Serial.print('\n');
   }
   else{
     Serial.println("Device not available!");
@@ -66,25 +67,3 @@ void loop()
   
   delay(50);
 }
-
-/*!
- *  @brief Print the position result.
- */
-void printResult()
-{
-  for (int i=0; i<4; i++) {
-    Serial.print(positionX[i]);
-    Serial.print(",");
-    
-    Serial.print(positionY[i]);
-    Serial.print(";");
-  }
-  Serial.println();
-}
-
-
-
-
-
-
-
