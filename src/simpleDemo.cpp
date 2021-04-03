@@ -20,9 +20,9 @@
  * @brief Library for DFRobot's IR Position Camera
  * @author [Angelo](Angelo.qiao@dfrobot.com)
  */
-#include "DFRobotIRPosition.h"
+#include "IRDirectionFinder.h"
 
-DFRobotIRPosition myDFRobotIRPosition;
+IRDirectionFinder irFinder;
 
 /*!
  *  @brief Print the position result.
@@ -36,7 +36,7 @@ void setup()
   /*!
    *  @brief initailize the module.
    */
-  myDFRobotIRPosition.begin();
+  irFinder.begin();
 }
 
 void loop()
@@ -44,15 +44,15 @@ void loop()
   /*!
    *  @brief request the position
    */
-  myDFRobotIRPosition.requestPosition();
+  irFinder.requestPosition();
   
   /*!
    *  @brief If there is data available, print it. Otherwise show the error message.
    */
-  if (myDFRobotIRPosition.available()) {
+  if (irFinder.available()) {
     for (int i=0; i<4; i++) 
     {
-      Point point = myDFRobotIRPosition.ReadPoint(i);
+      Point point = irFinder.ReadPoint(i);
       Serial.print(point.x);
       Serial.print(",");
       

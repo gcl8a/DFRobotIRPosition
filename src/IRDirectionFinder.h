@@ -1,5 +1,5 @@
 /*!
- * @file DFRobotIRPosition.h
+ * @file IRDirectionFinder.h
  * @brief DFRobot's Positioning ir camera
  * @n Header file for DFRobot's Positioning ir camera
  *
@@ -14,15 +14,15 @@
 #include "Arduino.h"
 #include "Wire.h"
 
-#ifndef DFRobotIRPosition_cpp
-#define DFRobotIRPosition_cpp
+#ifndef IRDirectionFinder_cpp
+#define IRDirectionFinder_cpp
 
 struct Point
 {
   int16_t x, y;
 };
 
-class DFRobotIRPosition 
+class IRDirectionFinder 
 {
   //just use the actual address
   const int IRAddress = 0x58;
@@ -57,12 +57,12 @@ public:
   /*!
    *  @brief Constructor
    */
-  DFRobotIRPosition();
+  IRDirectionFinder();
   
   /*!
    *  @brief Destructor
    */
-  ~DFRobotIRPosition();
+  ~IRDirectionFinder();
   
   /*!
    *  @brief initialize the sensor.

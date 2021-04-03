@@ -1,5 +1,5 @@
 /*!
- * @file DFRobotIRPosition.cpp
+ * @file IRDirectionFinder.cpp
  * @brief DFRobot's Positioning ir camera
  * @n CPP file for DFRobot's Positioning ir camera
  *
@@ -11,20 +11,20 @@
  * @date  2016-02-17
  */
 
-#include "DFRobotIRPosition.h"
+#include "IRDirectionFinder.h"
 
-DFRobotIRPosition::DFRobotIRPosition()
+IRDirectionFinder::IRDirectionFinder()
 {
   
 }
 
-DFRobotIRPosition::~DFRobotIRPosition()
+IRDirectionFinder::~IRDirectionFinder()
 {
   
 }
 
 // Instead of "writing two bytes", let's use proper I2C protocol and write to a register
-void DFRobotIRPosition::writeRegister(uint8_t reg, uint8_t value)
+void IRDirectionFinder::writeRegister(uint8_t reg, uint8_t value)
 {
   Wire.beginTransmission(IRAddress);
   Wire.write(reg);      //tell it what register we want to write to
@@ -32,7 +32,7 @@ void DFRobotIRPosition::writeRegister(uint8_t reg, uint8_t value)
   Wire.endTransmission();
 }
 
-void DFRobotIRPosition::begin()
+void IRDirectionFinder::begin()
 {
   Wire.begin();
   writeRegister(0x30,0x01);
@@ -51,7 +51,7 @@ void DFRobotIRPosition::begin()
   delay(100);
 }
 
-void DFRobotIRPosition::requestPosition()
+void IRDirectionFinder::requestPosition()
 {
   Wire.beginTransmission(IRAddress);
   Wire.write(0x36); //write address 0x36 to initiate a reading
@@ -59,7 +59,7 @@ void DFRobotIRPosition::requestPosition()
   Wire.requestFrom(IRAddress, 16);
 }
 
-bool DFRobotIRPosition::available()
+bool IRDirectionFinder::available()
 {
   if (Wire.available() == 16) {   //read only the data length fits.
     for (int i=0; i<16; i++) {
