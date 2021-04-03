@@ -1,0 +1,102 @@
+//
+// !!! WARNING !!! AUTO-GENERATED FILE!
+// PLEASE DO NOT MODIFY IT AND USE "platformio.ini":
+// https://docs.platformio.org/page/projectconf/section_env_build.html#build-flags
+//
+{
+    "configurations": [
+        {
+            "name": "PlatformIO",
+            "includePath": [
+                "/Users/greg/Documents/PlatformIO/lib/DFRobotIRPosition/include",
+                "/Users/greg/Documents/PlatformIO/lib/DFRobotIRPosition/src",
+                "/Users/greg/Documents/Platformio/lib/wpi-32u4-library/src",
+                "/Users/greg/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
+                "/Users/greg/.platformio/packages/framework-arduino-avr/cores/arduino",
+                "/Users/greg/.platformio/packages/framework-arduino-avr/variants/leonardo",
+                "/Users/greg/Documents/Platformio/lib/DFRobotIRPosition/include",
+                "/Users/greg/Documents/Platformio/lib/DFRobotIRPosition/src",
+                "/Users/greg/Documents/Platformio/lib/IRdecoder/include",
+                "/Users/greg/Documents/Platformio/lib/IRdecoder/src",
+                "/Users/greg/Documents/Platformio/lib/RBE1001Lib/src",
+                "/Users/greg/Documents/Platformio/lib/RBE1001LibExamples",
+                "/Users/greg/Documents/Platformio/lib/RFM69",
+                "/Users/greg/Documents/Platformio/lib/credentials/src",
+                "/Users/greg/Documents/Platformio/lib/linalg-micro/src",
+                "/Users/greg/Documents/Platformio/lib/openmv/src",
+                "/Users/greg/Documents/Platformio/lib/openmv-arduino-rpc/src",
+                "/Users/greg/Documents/Platformio/lib/pid-controller/include",
+                "/Users/greg/Documents/Platformio/lib/pid-controller/src",
+                "/Users/greg/Documents/Platformio/lib/romi-i2c-manager/src",
+                "/Users/greg/Documents/Platformio/lib/template-micro",
+                "/Users/greg/Documents/Platformio/lib/tf/src",
+                "/Users/greg/Documents/Platformio/lib/twi/include",
+                "/Users/greg/Documents/Platformio/lib/twi/src",
+                "/Users/greg/Documents/Platformio/lib/wpi-32u4-library-examples",
+                "/Users/greg/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
+                "/Users/greg/.platformio/packages/framework-arduino-avr/libraries/HID/src",
+                "/Users/greg/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
+                "/Users/greg/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
+                "/Users/greg/.platformio/packages/tool-unity",
+                ""
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "path": [
+                    "/Users/greg/Documents/PlatformIO/lib/DFRobotIRPosition/include",
+                    "/Users/greg/Documents/PlatformIO/lib/DFRobotIRPosition/src",
+                    "/Users/greg/Documents/Platformio/lib/wpi-32u4-library/src",
+                    "/Users/greg/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
+                    "/Users/greg/.platformio/packages/framework-arduino-avr/cores/arduino",
+                    "/Users/greg/.platformio/packages/framework-arduino-avr/variants/leonardo",
+                    "/Users/greg/Documents/Platformio/lib/DFRobotIRPosition/include",
+                    "/Users/greg/Documents/Platformio/lib/DFRobotIRPosition/src",
+                    "/Users/greg/Documents/Platformio/lib/IRdecoder/include",
+                    "/Users/greg/Documents/Platformio/lib/IRdecoder/src",
+                    "/Users/greg/Documents/Platformio/lib/RBE1001Lib/src",
+                    "/Users/greg/Documents/Platformio/lib/RBE1001LibExamples",
+                    "/Users/greg/Documents/Platformio/lib/RFM69",
+                    "/Users/greg/Documents/Platformio/lib/credentials/src",
+                    "/Users/greg/Documents/Platformio/lib/linalg-micro/src",
+                    "/Users/greg/Documents/Platformio/lib/openmv/src",
+                    "/Users/greg/Documents/Platformio/lib/openmv-arduino-rpc/src",
+                    "/Users/greg/Documents/Platformio/lib/pid-controller/include",
+                    "/Users/greg/Documents/Platformio/lib/pid-controller/src",
+                    "/Users/greg/Documents/Platformio/lib/romi-i2c-manager/src",
+                    "/Users/greg/Documents/Platformio/lib/template-micro",
+                    "/Users/greg/Documents/Platformio/lib/tf/src",
+                    "/Users/greg/Documents/Platformio/lib/twi/include",
+                    "/Users/greg/Documents/Platformio/lib/twi/src",
+                    "/Users/greg/Documents/Platformio/lib/wpi-32u4-library-examples",
+                    "/Users/greg/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
+                    "/Users/greg/.platformio/packages/framework-arduino-avr/libraries/HID/src",
+                    "/Users/greg/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
+                    "/Users/greg/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
+                    "/Users/greg/.platformio/packages/tool-unity",
+                    ""
+                ]
+            },
+            "defines": [
+                "PLATFORMIO=50101",
+                "ARDUINO_AVR_A_STAR_32U4",
+                "F_CPU=16000000L",
+                "ARDUINO_ARCH_AVR",
+                "ARDUINO=10808",
+                "USB_VID=0x1ffb",
+                "USB_PID=0x2300",
+                "USB_PRODUCT=\"Pololu A-Star 32U4\"",
+                "USB_MANUFACTURER=\"Pololu Corporation\"",
+                "__AVR_ATmega32U4__",
+                ""
+            ],
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "compilerPath": "/Users/greg/.platformio/packages/toolchain-atmelavr/bin/avr-gcc",
+            "compilerArgs": [
+                "-mmcu=atmega32u4",
+                ""
+            ]
+        }
+    ],
+    "version": 4
+}

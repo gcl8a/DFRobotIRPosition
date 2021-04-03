@@ -23,28 +23,38 @@ DFRobotIRPosition::~DFRobotIRPosition()
   
 }
 
-void DFRobotIRPosition::writeTwoIICByte(uint8_t first, uint8_t second)
+//this is awful -- see new function below
+// void DFRobotIRPosition::writeTwoIICByte(uint8_t first, uint8_t second)
+// {
+//   Wire.beginTransmission(IRAddress);
+//   Wire.write(first);
+//   Wire.write(second);
+//   Wire.endTransmission();
+// }
+
+// Instead of "writing two bytes", let's use proper I2C protocol and write to a register
+void DFRobotIRPosition::writeRegister(uint8_t reg, uint8_t value)
 {
   Wire.beginTransmission(IRAddress);
-  Wire.write(first);
-  Wire.write(second);
+  Wire.write(reg);      //tell it what register we want to write to
+  Wire.write(value);   //then set the contents of the register
   Wire.endTransmission();
 }
 
 void DFRobotIRPosition::begin()
 {
   Wire.begin();
-  writeTwoIICByte(0x30,0x01);
+  writeRegister(0x30,0x01);
   delay(10);
-  writeTwoIICByte(0x30,0x08);
+  writeRegister(0x30,0x08); //this makes no sense because now we're clobbering the previous write
   delay(10);
-  writeTwoIICByte(0x06,0x90);
+  writeRegister(0x06,0x90);
   delay(10);
-  writeTwoIICByte(0x08,0xC0);
+  writeRegister(0x08,0xC0);
   delay(10);
-  writeTwoIICByte(0x1A,0x40);
+  writeRegister(0x1A,0x40);
   delay(10);
-  writeTwoIICByte(0x33,0x33);
+  writeRegister(0x33,0x33);
   delay(10);
   
   delay(100);
@@ -53,14 +63,14 @@ void DFRobotIRPosition::begin()
 void DFRobotIRPosition::requestPosition()
 {
   Wire.beginTransmission(IRAddress);
-  Wire.write(0x36);
+  Wire.write(0x36); //write address 0x36 to initiate a reading
   Wire.endTransmission();
   Wire.requestFrom(IRAddress, 16);
 }
 
 bool DFRobotIRPosition::available()
 {
-  if (Wire.available() == 16) {   //read only the data lenth fits.
+  if (Wire.available() == 16) {   //read only the data length fits.
     for (int i=0; i<16; i++) {
       positionData.receivedBuffer[i]=Wire.read();
     }

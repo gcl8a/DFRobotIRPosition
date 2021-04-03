@@ -15,12 +15,16 @@
 #include "Wire.h"
 
 #ifndef DFRobotIRPosition_cpp
-  #define DFRobotIRPosition_cpp
+#define DFRobotIRPosition_cpp
 
 class DFRobotIRPosition {
 
-  const int IRAddress = 0xB0 >> 1; ///< IIC address of the sensor
+  //why would you do this?
+  //const int IRAddress = 0xB0 >> 1; ///< IIC address of the sensor
   
+  //just use the actual address
+  const int IRAddress = 0x58;
+
   /*!
    *  @brief position data structure from IIC sensor
    */
@@ -40,12 +44,12 @@ class DFRobotIRPosition {
   int positionY[4];   ///< position y.
   
   /*!
-   *  @brief write two byte into the sensor to initialize and send data.
+   *  @brief write to a register.
    *
-   *  @param first  the first byte
-   *  @param second the second byte
+   *  @param reg  the register address
+   *  @param value the value
    */
-  void writeTwoIICByte(uint8_t first, uint8_t second);
+  void writeRegister(uint8_t reg, uint8_t value);
 
 public:
 
